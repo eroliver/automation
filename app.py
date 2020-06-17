@@ -1,14 +1,14 @@
-import openpyxl as xl
-wb = xl.load_workbook('transactions.xlsx')
-sheet = wb['Sheet1']
-sheet['a1']
-cell = sheet.cell(1,1)
+from pathlib import Path
+import os
+import sys
+import win64com.shell.shell as shell
 
-for row in range(2, sheet.max_row + 1):
-    cell= sheet.cell(row, 3)
-    corrected_price = cell.value * 0.9
-    corrected_price_cell = sheet.cell(row, 4)
-    corrected_price_cell.value = corrected_price
+# C:\Users\eoliver\Downloads
+#users = []
+#for user in users:
+ #   append()
 
-wb.save('transactions2.xlsx')
+# files = ['C:\Users\eoliver\Downloads']
 
+downloads = Path('C:/Users/eoliver/Downloads')
+os.remove(downloads)
