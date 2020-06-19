@@ -28,23 +28,25 @@ def clear_old_downloads():
                 os.remove(base_path+entry.name)
 
 
-# add check for multiple drives and users
+# ######### add check for multiple drives and users
 def clear_old_recycle_bin():
     base_path = 'C:/$Recycle.Bin/'
     with os.scandir(base_path) as entries:
         for entry in entries:
             if entry.is_file() and os.path.getmtime(entry) < time.time() - 15768000:
                 print(entry.name)
-                os.remove(base_path + entry.name)
+                # os.remove(base_path + entry.name)
 
 
 def clear_old_recycle_bin_desktop():
-    base_path = 'C:/Users/eoliver/Desktop/'
+    base_path = 'C:/$Recycle.Bin/S-1-5-21-3731599672-716333192-3968740238-1801'
     with os.scandir(base_path) as entries:
         for entry in entries:
-            if entry.is_file() and os.path.getmtime(entry) < time.time() - 100:
+            if entry.is_file() and os.path.getmtime(entry) < time.time() - 100 and entry.name != "desktop.ini":
                 print(entry.name)
                 # os.remove(base_path + entry.name)
 
 
-clear_old_recycle_bin_desktop()
+# clear_old_recycle_bin_desktop()
+
+
